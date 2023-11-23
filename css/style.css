@@ -1263,6 +1263,12 @@ ul li a.active::after {
   outline: none;
   flex: 1;
   background-color: #303030; }
+  @media (max-width: 37.5em) {
+    .search-text {
+      flex: auto; } }
+  @media (min-width: 112.5em) {
+    .search-text {
+      flex: auto; } }
 
 .hamburger {
   display: none;
@@ -1389,12 +1395,12 @@ ul li a.active::after {
     .close-cont {
       position: absolute;
       top: 11%;
-      right: 2.5%; } }
+      right: 6.5%; } }
   @media (min-width: 112.5em) {
     .close-cont {
       position: absolute;
       top: 11%;
-      right: 2.5%; } }
+      right: 6.5%; } }
 
 .close-bar {
   display: flex;
