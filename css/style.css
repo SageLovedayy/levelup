@@ -1511,6 +1511,12 @@ progress::-moz-progress-bar {
   align-items: center;
   justify-content: space-between;
   padding: 1.3rem 1rem; }
+  @media (max-width: 37.5em) {
+    .option {
+      padding: 2rem 1rem; } }
+  @media (min-width: 112.5em) {
+    .option {
+      padding: 2rem 1rem; } }
 
 .active {
   display: none;
