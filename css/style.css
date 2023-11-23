@@ -1265,10 +1265,12 @@ ul li a.active::after {
   background-color: #303030; }
   @media (max-width: 37.5em) {
     .search-text {
-      flex: auto; } }
+      flex: auto;
+      width: 17rem; } }
   @media (min-width: 112.5em) {
     .search-text {
-      flex: auto; } }
+      flex: auto;
+      width: 17rem; } }
 
 .hamburger {
   display: none;
