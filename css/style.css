@@ -728,10 +728,10 @@ ul li a.active::after {
   flex-direction: column; }
   @media (max-width: 37.5em) {
     .popup {
-      width: 80%; } }
+      width: 85%; } }
   @media (min-width: 112.5em) {
     .popup {
-      width: 80%; } }
+      width: 85%; } }
 
 .popup2 {
   height: auto;
@@ -1200,6 +1200,12 @@ ul li a.active::after {
   margin: 0 auto; }
   .namePlain:hover {
     background-color: #f1f1f1; }
+  @media (max-width: 37.5em) {
+    .namePlain {
+      padding: 1rem 1rem; } }
+  @media (min-width: 112.5em) {
+    .namePlain {
+      padding: 1rem 1rem; } }
 
 .name-user {
   color: #323232;
