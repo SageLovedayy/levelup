@@ -78,12 +78,12 @@ html {
   font-size: 58%;
   font-family: Inter;
   scroll-behavior: smooth; }
-  @media (max-width: 75em) {
+  @media (max-width: 37.5em) {
     html {
-      font-size: 56.25%; } }
-  @media (max-width: 56.25em) {
+      font-size: 53%; } }
+  @media (min-width: 112.5em) {
     html {
-      font-size: 50%; } }
+      font-size: 53%; } }
 
 body {
   box-sizing: border-box;
@@ -517,6 +517,14 @@ ul li a.active::after {
   font-weight: 700;
   font-family: Inter; }
 
+@media (max-width: 37.5em) {
+  .btn {
+    font-size: 1.3rem !important; } }
+
+@media (min-width: 112.5em) {
+  .btn {
+    font-size: 1.3rem !important; } }
+
 .btn:hover {
   transform: translateY(-0.3rem);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
@@ -607,10 +615,14 @@ ul li a.active::after {
   justify-content: center; }
   @media (max-width: 37.5em) {
     .btn--white:link, .btn--white:visited {
-      margin: 0; } }
+      margin: 0;
+      height: 3.5rem;
+      width: 11rem; } }
   @media (min-width: 112.5em) {
     .btn--white:link, .btn--white:visited {
-      margin: 0; } }
+      margin: 0;
+      height: 3.5rem;
+      width: 11rem; } }
 
 .btn--white-card:link, .btn--white-card:visited {
   text-transform: none;
@@ -1352,11 +1364,15 @@ ul li a.active::after {
 
 @media (max-width: 37.5em) {
   .trial {
-    width: 32rem; } }
+    width: 32rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem; } }
 
 @media (min-width: 112.5em) {
   .trial {
-    width: 32rem; } }
+    width: 32rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem; } }
 
 .close-cont {
   display: flex;
@@ -1370,13 +1386,13 @@ ul li a.active::after {
   @media (max-width: 37.5em) {
     .close-cont {
       position: absolute;
-      top: 0;
-      right: 2rem; } }
+      top: 8%;
+      right: 2.5%; } }
   @media (min-width: 112.5em) {
     .close-cont {
       position: absolute;
-      top: 0;
-      right: 2rem; } }
+      top: 8%;
+      right: 2.5%; } }
 
 .close-bar {
   display: flex;
