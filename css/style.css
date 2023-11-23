@@ -1272,6 +1272,17 @@ ul li a.active::after {
       flex: auto;
       width: 17rem; } }
 
+.setup-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: Inter; }
+  @media (max-width: 37.5em) {
+    .setup-text {
+      font-size: 1.5rem; } }
+  @media (min-width: 112.5em) {
+    .setup-text {
+      font-size: 1.5rem; } }
+
 .hamburger {
   display: none;
   cursor: pointer; }
