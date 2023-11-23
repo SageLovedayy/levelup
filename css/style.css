@@ -1546,10 +1546,12 @@ progress::-moz-progress-bar {
   line-height: 1.8rem; }
   @media (max-width: 37.5em) {
     .content-text {
-      width: 30rem; } }
+      width: 30rem;
+      font-size: 1.3rem; } }
   @media (min-width: 112.5em) {
     .content-text {
-      width: 30rem; } }
+      width: 30rem;
+      font-size: 1.3rem; } }
 
 .grad-btn {
   background: linear-gradient(to right, #03689a, #074c6e);
