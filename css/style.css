@@ -1341,13 +1341,15 @@ ul li a.active::after {
       display: block;
       height: auto;
       position: relative;
-      border-radius: 0%; } }
+      border-radius: 0%;
+      padding: 2rem 1rem; } }
   @media (min-width: 112.5em) {
     .content-pop {
       display: block;
       height: auto;
       position: relative;
-      border-radius: 0%; } }
+      border-radius: 0%;
+      padding: 2rem 1rem; } }
 
 .content-main {
   background-color: white;
@@ -1386,12 +1388,12 @@ ul li a.active::after {
   @media (max-width: 37.5em) {
     .close-cont {
       position: absolute;
-      top: 8%;
+      top: 11%;
       right: 2.5%; } }
   @media (min-width: 112.5em) {
     .close-cont {
       position: absolute;
-      top: 8%;
+      top: 11%;
       right: 2.5%; } }
 
 .close-bar {
