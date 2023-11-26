@@ -1077,6 +1077,12 @@ button {
   .plain-bar:focus {
     border: 0.2rem solid #005BD3;
     outline: none; }
+  @media (max-width: 37.5em) {
+    .plain-bar {
+      width: 100%; } }
+  @media (min-width: 112.5em) {
+    .plain-bar {
+      width: 100%; } }
 
 .noborder-rad {
   border-radius: 0%; }
