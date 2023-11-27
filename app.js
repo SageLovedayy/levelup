@@ -1,3 +1,40 @@
+window.onload = function() {
+	toggleDropdown();
+	expandFirstOpt();
+};
+
+//=====page load dropdown===/
+function toggleDropdown() {
+    const button = document.querySelector('.collapsible-trigger');
+    const content = document.querySelector('.collapsible-content');
+    const arrowDown = document.querySelector('.arrow-down');
+    const arrowUp = document.querySelector('.arrow-up');
+
+    const isCollapsed = content.style.display === 'none' || content.style.display === '';
+
+    content.style.display = isCollapsed ? 'block' : 'none';
+    arrowDown.style.display = isCollapsed ? 'block' : 'none';
+    arrowUp.style.display = isCollapsed ? 'none' : 'block';
+
+    // Toggle aria-expanded attribute
+    button.setAttribute('aria-expanded', String(isCollapsed));
+
+
+}
+
+//======expand first option in setup options on page load==/
+function expandFirstOpt() {
+	var opts = document.querySelectorAll(".opt");
+	var allActives = document.querySelectorAll(".active");
+
+	allActives[0].style.display = "flex";
+	opts[0].style.display = "none";
+
+
+}
+
+
+//===========handle setup options drop down=================
 function toggleCollapsible() {
     const button = document.querySelector('.collapsible-trigger');
     const content = document.querySelector('.collapsible-content');
