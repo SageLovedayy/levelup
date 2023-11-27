@@ -1,23 +1,28 @@
- function toggleCollapsible() {
-		const content = document.querySelector('.collapsible-content');
-		const arrowDown = document.querySelector('.arrow-down');
-		const arrowUp = document.querySelector('.arrow-up');
+function toggleCollapsible() {
+    const button = document.querySelector('.collapsible-trigger');
+    const content = document.querySelector('.collapsible-content');
+    const arrowDown = document.querySelector('.arrow-down');
+    const arrowUp = document.querySelector('.arrow-up');
 
-		content.style.display = (content.style.display === 'none' || content.style.display === '') ? 'block' : 'none';
-		arrowDown.style.display = (content.style.display === 'none' || content.style.display === '') ? 'block' : 'none';
-		arrowUp.style.display = (content.style.display === 'none' || content.style.display === '') ? 'none' : 'block';
+    const isCollapsed = content.style.display === 'none' || content.style.display === '';
+
+    content.style.display = isCollapsed ? 'block' : 'none';
+    arrowDown.style.display = isCollapsed ? 'block' : 'none';
+    arrowUp.style.display = isCollapsed ? 'none' : 'block';
+
+    // Toggle aria-expanded attribute
+    button.setAttribute('aria-expanded', String(isCollapsed));
+
+    // Shift focus to the button to ensure screen reader announces the change
+    button.focus();
 }
 
-//function toggleOption() {
-//	const opt = document.querySelector('.opt');
-//	const active = document.querySelector('.active');
-
-//	// Toggle the display property of 'opt' and 'active'
-//	opt.style.display = (opt.style.display === 'none' || opt.style.display === '') ? 'none' : '';
-//	active.style.display = (active.style.display === 'none' || active.style.display === '') ? 'flex' : 'none';
-//}
 
 //expand option
+
+//-------------------------------------------------------------
+
+
 document.addEventListener("DOMContentLoaded", function () {
     var allActives = document.querySelectorAll(".active");
     allActives.forEach(function (active) {
@@ -29,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     opts.forEach(function (opt) {
         var container = opt.parentElement;
         var active = container.querySelector(".active");
+
 
         opt.addEventListener("click", function () {
             // Hide all active divs
@@ -67,173 +73,178 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-//navigate options
 
+
+
+//==handle setup options navigation==========================================
 document.addEventListener("DOMContentLoaded", function () {
-    // Get all option elements
-    var opts = document.querySelectorAll('.active');
+	// Get all option elements
+	const collapsedContent = document.getElementById('collapsed-content');
+	const menuTrigger = document.getElementById('menu-trigger');
+	const opts = collapsedContent.querySelectorAll('[role="menuitem"]');
 
-    // Add a focus event listener to each option
-    opts.forEach(function (opt, index) {
-        opt.addEventListener('focus', function () {
-            // Add a class to visually highlight the focused option
-            opt.classList.add('focused');
-        });
 
-        opt.addEventListener('blur', function () {
-            // Remove the class when the option loses focus
-            opt.classList.remove('focused');
-        });
 
-        // Add a keydown event listener to handle arrow keys
-        opt.addEventListener('keydown', function (event) {
-            if (event.key === 'ArrowDown') {
-                // Check if it's the last element
-                if (index === opts.length - 1) {
-                    opts[0].focus(); // Focus on the first element
-                } else {
-                    opts[index + 1].focus();
-                }
-            } else if (event.key === 'ArrowUp' && index > 0) {
-                opts[index - 1].focus();
-            }
-        });
-    });
+	// Add a focus event listener to each option
+
+	menuTrigger.addEventListener("click", function (event) {
+		opts.forEach(function (opt, index) {
+			opt.addEventListener('focus', function () {
+				// Add a class to visually highlight the focused option
+				opt.classList.add('focused');
+			});
+
+			opt.addEventListener('blur', function () {
+				// Remove the class when the option loses focus
+				opt.classList.remove('focused');
+			});
+
+			// Add a keydown event listener to handle arrow keys
+			opt.addEventListener('keydown', function (event) {
+				console.log(event.key);
+				if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+					// Check if it's the last element
+					if (index === opts.length - 1) {
+						opts[0].focus(); // Focus on the first element
+					} else {
+						opts[index + 1].focus();
+					}
+				} else if ((event.key === 'ArrowUp' || event.key === 'ArrowLeft') && index > 0) {
+					opts[index - 1].focus();
+					event.preventDefault();
+				} else if (event.key === 'Enter') {
+					simulateTabPress();
+				}
+			});
+
+			function simulateTabPress() {
+				console.log("Simulating Tab press.");
+				var nextElement = opt.firstElementChild;
+
+				if (nextElement) {
+					nextElement.focus();
+
+					// Simulate pressing "Enter" on the focused element
+					var enterKeyEvent = new KeyboardEvent('keydown', {
+						key: 'Enter',
+						keyCode: 13,
+						which: 13,
+					});
+
+					nextElement.dispatchEvent(enterKeyEvent);
+				}
+			};
+
+
+		});
+	});
+
+
 });
 
 
+//handle navbar popups====================================================================
+
 document.addEventListener("DOMContentLoaded", function () {
-    // Get all option elements
-    var opts = document.querySelectorAll('.opt');
+	function togglePopup(popup, triggerButton) {
+		popup.classList.toggle("hidden");
+		const isClosed = popup.classList.contains("hidden");
+		triggerButton.setAttribute('aria-expanded', String(!isClosed));
+		return isClosed;
+	}
 
-    // Add a focus event listener to each option
-    opts.forEach(function (opt, index) {
-        opt.addEventListener('focus', function () {
-            // Add a class to visually highlight the focused option
-            opt.classList.add('focused');
-        });
+	function focusOnElement(element) {
+		if (element) {
+			element.focus();
+		}
+	}
 
-        opt.addEventListener('blur', function () {
-            // Remove the class when the option loses focus
-            opt.classList.remove('focused');
-        });
+	function closePopup(popup, triggerButton, event) {
+		if (!popup.contains(event.target) && event.target !== triggerButton) {
+			popup.classList.add("hidden");
+		document.removeEventListener("keydown", closePopupOnEscape);
+		triggerButton.setAttribute('aria-expanded', "false");
+			//focusOnElement(triggerButton);
+		}
+	}
 
-        // Add a keydown event listener to handle arrow keys
-        opt.addEventListener('keydown', function (event) {
-            if (event.key === 'ArrowDown') {
-                // Check if it's the last element
-                if (index === opts.length - 1) {
-                    opts[0].focus(); // Focus on the first element
-                } else {
-                    opts[index + 1].focus();
-                }
-            } else if (event.key === 'ArrowUp' && index > 0) {
-                opts[index - 1].focus();
-            }
-        });
-    });
-});
+	function closePopupOnEscape(popup, triggerButton, event) {
+		if (event.key === "Escape") {
+			popup.classList.add("hidden");
+		document.removeEventListener("keydown", closePopupOnEscape);
+		triggerButton.setAttribute('aria-expanded', "false");
+			focusOnElement(triggerButton);
+		}
+	}
 
-//==handle other nav
-document.addEventListener("DOMContentLoaded", function () {
-    // Get all option elements
-    var opts = document.querySelectorAll('.keyNav');
+	const showPopupButton = document.getElementById("showPopup");
+	const popup = document.getElementById("popup");
 
-    // Add a focus event listener to each option
-    opts.forEach(function (opt, index) {
-        opt.addEventListener('focus', function () {
-            // Add a class to visually highlight the focused option
-            opt.classList.add('focused');
-        });
-
-        opt.addEventListener('blur', function () {
-            // Remove the class when the option loses focus
-            opt.classList.remove('focused');
-        });
-
-        // Add a keydown event listener to handle arrow keys
-        opt.addEventListener('keydown', function (event) {
-            if (event.key === 'ArrowDown') {
-                // Check if it's the last element
-                if (index === opts.length - 1) {
-                    opts[0].focus(); // Focus on the first element
-                } else {
-                    opts[index + 1].focus();
-                }
-            } else if (event.key === 'ArrowUp' && index > 0) {
-		    opts[index - 1].focus();
-		    event.preventDefault();
-            }
-        });
-    });
-});
+	showPopupButton.addEventListener("click", function (event) {
+		const isClosed = togglePopup(popup, showPopupButton);
+		const allMenuItems = popup.querySelectorAll('[role="menuitem"]');
 
 
-//handle popups=============
-document.addEventListener("DOMContentLoaded", function () {
-    // Function to close a specific popup
-    function closePopup(popup, event) {
-        // Check if the clicked element is not inside the popup
-        if (!popup.contains(event.target) && event.target !== showPopupButton) {
-            // Hide the popup
-            popup.classList.add("hidden");
+		focusOnElement(isClosed ? showPopupButton : allMenuItems.item(0));
+		event.stopPropagation();
+		//add keyboard arrow navigation functionality
+		allMenuItems.forEach(function (menuitem, index) {
+			menuitem.addEventListener('keydown', function (event) {
+				if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+					if (index === allMenuItems.length - 1) {
+						focusOnElement(allMenuItems[0]);
+					} else {
+						focusOnElement(allMenuItems[index + 1]);
+					}
+				}
+				else if ((event.key === 'ArrowUp' || event.key == 'ArrowLeft') && index > 0) {
+					focusOnElement(allMenuItems[index - 1]);
+					event.preventDefault();
+				}
+			});
+		});
 
-            // Remove the click event listener from the document
-            document.removeEventListener("click", closePopupOutside);
-            // Remove the keydown event listener from the document
-            document.removeEventListener("keydown", closePopupOnEscape);
-        }
-    }
 
-    // Function to handle "Escape" key press
-    function closePopupOnEscape(popup, event) {
-        // Check if the pressed key is the "Escape" key (key code 27)
-        if (event.key === "Escape") {
-            // Hide the popup
-            popup.classList.add("hidden");
 
-            // Remove the click event listener from the document
-            document.removeEventListener("click", closePopupOutside);
-            // Remove the keydown event listener from the document
-            document.removeEventListener("keydown", closePopupOnEscape);
-        }
-    }
+		document.addEventListener("click", (event) => closePopup(popup, showPopupButton, event));
+		document.addEventListener("keydown", (event) => closePopupOnEscape(popup, showPopupButton, event));
+	});
 
-    // Show and handle events for the first popup
-    const showPopupButton = document.getElementById("showPopup");
-    const popup = document.getElementById("popup");
 
-    showPopupButton.addEventListener("click", function (event) {
-        // Show the popup
-        popup.classList.remove("hidden");
+	const showPopupBtn = document.getElementById("showPopup2");
+	const popup2 = document.getElementById("popup2");
 
-        event.stopPropagation();
+	showPopupBtn.addEventListener("click", function (event) {
+		const isClosed = togglePopup(popup2, showPopupBtn);
+		const allMenuItems = popup2.querySelectorAll('[role="menuitem"]');
+		focusOnElement(isClosed ? showPopupBtn : allMenuItems.item(0));
+		event.stopPropagation();
 
-        // Add a click event listener to the document to close the popup when clicking outside of it
-        document.addEventListener("click", (event) => closePopup(popup, event));
-        // Add a keydown event listener to the document to close the popup on the "Escape" key
-        document.addEventListener("keydown", (event) => closePopupOnEscape(popup, event));
-    });
+		//add keyboard arrow navigation functionality
+		allMenuItems.forEach(function (menuitem, index) {
+			menuitem.addEventListener('keydown', function (event) {
+				if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+					if (index === allMenuItems.length - 1) {
+						focusOnElement(allMenuItems[0]);
+					} else {
+						focusOnElement(allMenuItems[index + 1]);
+					}
+				}
+				else if ((event.key === 'ArrowUp' || event.key == 'ArrowLeft') && index > 0) {
+					focusOnElement(allMenuItems[index - 1]);
+					event.preventDefault();
+				}
+			});
+		});
 
-    // Show and handle events for the second popup
-    const showPopupBtn = document.getElementById("showPopup2");
-    const popup2 = document.getElementById("popup2");
-
-    showPopupBtn.addEventListener("click", function (event) {
-        // Show the popup
-        popup2.classList.remove("hidden");
-
-        event.stopPropagation();
-
-        // Add a click event listener to the document to close the popup when clicking outside of it
-        document.addEventListener("click", (event) => closePopup(popup2, event));
-        // Add a keydown event listener to the document to close the popup on the "Escape" key
-        document.addEventListener("keydown", (event) => closePopupOnEscape(popup2, event));
-    });
+		document.addEventListener("click", (event) => closePopup(popup2, showPopupBtn, event));
+		document.addEventListener("keydown", (event) => closePopupOnEscape(popup2, showPopupBtn, event));
+	});
 });
 
 
-//close content pop
+//close content pop====================================================================================
+
 document.addEventListener("DOMContentLoaded", function () {
 	const closePopButton = document.getElementById("closePop");
 	const pop = document.getElementById("Pop");
@@ -247,25 +258,60 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 });
 
-//==progress bar
+//== toggle check and handle progress bar =============================================================
 function toggleCheck(element) {
-	element.classList.toggle('checked');
+    // Check if the "checked" class is present at the beginning
+    const isCheckedInitially = element.classList.contains('checked');
 
-	// Check if the parent container is "opt" or "active"
-	const parentContainer = element.closest('.option');
-	const isOpt = parentContainer.classList.contains('opt');
+    // Check if the parent container is "opt" or "active"
+    const parentContainer = element.closest('.option');
+    const isOpt = parentContainer.classList.contains('opt');
 
-	// Find the corresponding element in the other container
-	const otherContainer = isOpt ? parentContainer.nextElementSibling : parentContainer.previousElementSibling;
-	const otherDottedCircle = otherContainer.querySelector('.dotted-circle');
-	const ariaChecked = element.getAttribute('aria-checked') === 'true' ? 'false' : 'true';
+    // Find the corresponding element in the other container
+    const otherContainer = isOpt ? parentContainer.nextElementSibling : parentContainer.previousElementSibling;
+    const otherDottedCircle = otherContainer.querySelector('.dotted-circle');
+
+    // Conditionally remove the "checked" class if present initially
+    if (isCheckedInitially) {
+        element.classList.remove('checked');
+        otherDottedCircle.classList.remove('checked');
+    }
+
+    // Add the "spinning" class to the clicked element
+    element.classList.add('spinning');
+
+    // Add the "spinning" class to the otherDottedCircle
+    otherDottedCircle.classList.add('spinning');
+
+    // Simulate a 3-second delay
+    setTimeout(function () {
+        // Remove the "spinning" class after 3 seconds for the clicked element
+        element.classList.remove('spinning');
+        // Remove the "spinning" class after 3 seconds for the otherDottedCircle
+        otherDottedCircle.classList.remove('spinning');
+
+        // Toggle the "checked" class for the clicked element
+	    if (!isCheckedInitially) {
+		    element.classList.toggle('checked');
+
+		    // Toggle the "checked" class for the otherDottedCircle
+		    otherDottedCircle.classList.toggle('checked');
+	    }
+
+        // Update the "aria-checked" attribute for the clicked element
+        const ariaChecked = element.getAttribute('aria-checked') === 'true' ? 'false' : 'true';
         element.setAttribute('aria-checked', ariaChecked);
-	// Toggle the check-mark class for the corresponding element in the other container
-	otherDottedCircle.classList.toggle('checked');
 
+        // Update the "aria-checked" attribute for the otherDottedCircle
+        const otherAriaChecked = otherDottedCircle.getAttribute('aria-checked') === 'true' ? 'false' : 'true';
+        otherDottedCircle.setAttribute('aria-checked', otherAriaChecked);
 
-	updateProgressBar();
+        // Update the progress bar
+        updateProgressBar();
+    }, 3000); // Adjust the timing here if needed
 }
+
+
 
 function handleKeyPress(event) {
         if (event.key === 'Enter' || event.key === ' ') {
@@ -285,3 +331,4 @@ function updateProgressBar() {
 	progressBar.value = checkedCircles.length/2;
 	checkNo.innerText = progressBar.value.toString();
 }
+//------------------------------------------------------------------------------------------------------------
