@@ -3,6 +3,39 @@ window.onload = function() {
 	expandFirstOpt();
 };
 
+//window.addEventListener {
+//	'beforeunload',
+//	event => {
+//		event.preventDefault();
+//		event.returnValue = '';
+//	}
+//};
+function handleClickOrEnter(event) {
+        // Check if the event is a click or keyboard enter
+        if (event.type === 'click' || (event.type === 'keydown' && event.key === 'Enter')) {
+            // Find the closest .option element
+            const optionElement = event.target.closest('.option');
+
+            // If found, call toggleCheck with the .dotted-circle element as an argument
+            if (optionElement) {
+                const dottedCircleElement = optionElement.querySelector('.dotted-circle');
+                toggleCheck(dottedCircleElement);
+            }
+        }
+    }
+
+    // Get all elements with class btn--custom
+    const btnCustomElements = document.querySelectorAll('.btn--custom');
+
+    // Attach event listener to each btn--custom element
+    btnCustomElements.forEach(function (element) {
+        element.addEventListener('click', handleClickOrEnter);
+        element.addEventListener('keydown', handleClickOrEnter);
+        // Ensure the element is focusable
+        element.setAttribute('tabindex', '0');
+    });
+
+
 //=====page load dropdown===/
 function toggleDropdown() {
     const button = document.querySelector('.collapsible-trigger');
@@ -306,7 +339,9 @@ function toggleCheck(element) {
 
     // Find the corresponding element in the other container
     const otherContainer = isOpt ? parentContainer.nextElementSibling : parentContainer.previousElementSibling;
-    const otherDottedCircle = otherContainer.querySelector('.dotted-circle');
+	const otherDottedCircle = otherContainer.querySelector('.dotted-circle');
+	const checkStatus = parentContainer.querySelector('.check-status')
+
 
     // Conditionally remove the "checked" class if present initially
     if (isCheckedInitially) {
@@ -320,6 +355,9 @@ function toggleCheck(element) {
     // Add the "spinning" class to the otherDottedCircle
     otherDottedCircle.classList.add('spinning');
 
+	checkStatus.setAttribute('aria-label', 'Loading...please wait');
+	console.log(checkStatus.getAttribute('aria-label'));
+
     // Simulate a 3-second delay
     setTimeout(function () {
         // Remove the "spinning" class after 3 seconds for the clicked element
@@ -328,12 +366,12 @@ function toggleCheck(element) {
         otherDottedCircle.classList.remove('spinning');
 
         // Toggle the "checked" class for the clicked element
-	    if (!isCheckedInitially) {
-		    element.classList.toggle('checked');
+        if (!isCheckedInitially) {
+            element.classList.toggle('checked');
 
-		    // Toggle the "checked" class for the otherDottedCircle
-		    otherDottedCircle.classList.toggle('checked');
-	    }
+            // Toggle the "checked" class for the otherDottedCircle
+            otherDottedCircle.classList.toggle('checked');
+        }
 
         // Update the "aria-checked" attribute for the clicked element
         const ariaChecked = element.getAttribute('aria-checked') === 'true' ? 'false' : 'true';
@@ -343,10 +381,35 @@ function toggleCheck(element) {
         const otherAriaChecked = otherDottedCircle.getAttribute('aria-checked') === 'true' ? 'false' : 'true';
         otherDottedCircle.setAttribute('aria-checked', otherAriaChecked);
 
+        // Update the "aria-label" attribute for the clicked element
+	const currentAriaLabel = element.getAttribute('aria-label');
+	const newAriaLabel = currentAriaLabel.includes('as done')
+    		? currentAriaLabel.replace('as done', 'as not done')
+		: currentAriaLabel.replace('as not done', 'as done');
+	console.log(newAriaLabel);
+	element.setAttribute('aria-label', newAriaLabel);
+
+// Update the "aria-label" attribute for the otherDottedCircle
+const otherCurrentAriaLabel = otherDottedCircle.getAttribute('aria-label');
+const otherNewAriaLabel = otherCurrentAriaLabel.includes('as done')
+    ? otherCurrentAriaLabel.replace('as done', 'as not done')
+    : otherCurrentAriaLabel.replace('as not done', 'as done');
+otherDottedCircle.setAttribute('aria-label', otherNewAriaLabel);
+
+	    //check status
+
+	const newCheckLabel = ariaChecked === 'true' ? 'Successfully marked as done' : 'Successfully marked as not done';
+	checkStatus.setAttribute('aria-label', newCheckLabel);
+
+
+	console.log(checkStatus.getAttribute('aria-label'));
+
+
         // Update the progress bar
         updateProgressBar();
     }, 3000); // Adjust the timing here if needed
 }
+
 
 
 

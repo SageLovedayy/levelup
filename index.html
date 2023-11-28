@@ -103,13 +103,13 @@
             <section id="A" style="position: relative">
                 <div class="content">
                     <div class="content-pop" id="Pop">
-                         <p class="name-text trial" tabindex="0" aria-label="Extend your trial for 1 dollar per month for 3 months on select plans.">
+                         <p class="name-text trial" tabindex="0" aria-label="Extend your trial for 1 dollar per month for 3 months on select plans. Press tab to explore this option">
                               Extend your trial for $1/month for 3 months on select plans.
                          </p>
 
                          <div class="close-bar">
-                              <a href="" class="btn btn--white" role="button" aria-label="Choose a subscription plan" onclick="event.preventDefault()">Select a plan</a>
-                              <button class="close-cont" id="closePop" aria-label="Close trial popup">
+                              <a href="" class="btn btn--white" role="button" aria-label="Press enter to choose a subscription plan" onclick="event.preventDefault()">Select a plan</a>
+                              <button class="close-cont" id="closePop" aria-label="Close trial subscription offer">
                                    <svg width="20" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M14.4697 15.0303C14.7626 15.3232 15.2374 15.3232 15.5303 15.0303C15.8232 14.7374 15.8232 14.2626 15.5303 13.9697L11.5607 10L15.5303 6.03033C15.8232 5.73744 15.8232 5.26256 15.5303 4.96967C15.2374 4.67678 14.7626 4.67678 14.4697 4.96967L10.5 8.93934L6.53033 4.96967C6.23744 4.67678 5.76256 4.67678 5.46967 4.96967C5.17678 5.26256 5.17678 5.73744 5.46967 6.03033L9.43934 10L5.46967 13.9697C5.17678 14.2626 5.17678 14.7374 5.46967 15.0303C5.76256 15.3232 6.23744 15.3232 6.53033 15.0303L10.5 11.0607L14.4697 15.0303Z" fill="#fff"/>
                                    </svg>
@@ -151,20 +151,20 @@
                             <div class="collapsible-content" id="collapsed-content" aria-labelledby="menu-trigger" role="region">
 
 
-                                    <div class="container1" role="menuitem" tabindex="0">
-                                        <div class="option opt" tabindex="0">
+                                    <div class="container1" role="menuitem" tabindex="0" aria-hidden="true" aria-label="Customize your online store...Hit tab to expand this item...or keep navigating menu items with arrow keys">
+                                        <div class="option opt" tabindex="0" aria-hidden="true" aria-label="Hit enter">
 
                                             <div style="display: flex; align-items: center;">
-                                                <div class="dotted-circle" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
+                                                <button class="dotted-circle" role="button" aria-label="mark customize theme as done" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
 
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked">
+                                                    <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked">
                                                         <circle cx="12" cy="12" r="10" stroke="#8A8A8A" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3.7"/>
                                                     </svg>
 
 
 
 
-                                                    <div tabindex="0" class="check-mark">
+                                                    <div class="check-mark">
                                                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <circle cx="11.9996" cy="12" r="10" fill="#1C181D" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
                                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z" fill="white"/>
@@ -175,7 +175,10 @@
                                                         <path d="M22.0004 12C22.0004 13.9778 21.4139 15.9112 20.3151 17.5557C19.2162 19.2002 17.6545 20.4819 15.8272 21.2388C13.9999 21.9957 11.9893 22.1937 10.0495 21.8079C8.10965 21.422 6.32782 20.4696 4.9293 19.0711C3.53077 17.6725 2.57837 15.8907 2.19251 13.9509C1.80666 12.0111 2.00469 10.0004 2.76157 8.17317C3.51845 6.3459 4.80017 4.78412 6.44466 3.6853C8.08916 2.58649 10.0226 2 12.0004 2" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
                                                     </svg>
 
-                                                </div>
+                                                </button>
+
+                                                <span class="check-status" aria-live="assertive" tabindex="0" aria-hidden="true"></span>
+
 
                                             </div>
 
@@ -183,18 +186,18 @@
 
                                         </div>
 
-                                        <div class="option active" tabindex="0">
-                                            <div class="dotted-circle" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
+                                        <div class="option active" tabindex="0" aria-hidden="true" role="contentinfo" aria-label="Hit tab to expand or keep navigating menuitems with arrow keys">
+                                            <button class="dotted-circle" aria-label="mark customize theme as done or double hit tab for details" tabindex="0" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
 
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked" aria-hidden="true">
                                                     <circle cx="12" cy="12" r="10" stroke="#8A8A8A" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3.7"/>
                                                 </svg>
 
 
 
 
-                                                <div tabindex="0" class="check-mark">
-                                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <div class="check-mark" aria-hidden="true">
+                                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <circle cx="11.9996" cy="12" r="10" fill="#1C181D" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
                                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z" fill="white"/>
                                                     </svg>
@@ -204,7 +207,9 @@
                                                     <path d="M22.0004 12C22.0004 13.9778 21.4139 15.9112 20.3151 17.5557C19.2162 19.2002 17.6545 20.4819 15.8272 21.2388C13.9999 21.9957 11.9893 22.1937 10.0495 21.8079C8.10965 21.422 6.32782 20.4696 4.9293 19.0711C3.53077 17.6725 2.57837 15.8907 2.19251 13.9509C1.80666 12.0111 2.00469 10.0004 2.76157 8.17317C3.51845 6.3459 4.80017 4.78412 6.44466 3.6853C8.08916 2.58649 10.0226 2 12.0004 2" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
                                                 </svg>
 
-                                            </div>
+                                            </button>
+
+                                            <span class="check-status" aria-live="assertive" tabindex="0" aria-hidden="true"></span>
 
                                             <div class="content-box">
 
@@ -214,71 +219,98 @@
                                                 </div>
 
 
-                                                <p class="content-text">Choose a theme and add your logo, colors, and images to reflect your brand.
+                                                <p class="keyNav content-text" tabindex="0">Choose a theme and add your logo, colors, and images to reflect your brand.
                                                 <a href="" class="keyNav content-link" tabindex="0"><span style="font-family: Inter;">Learn more</span></a></p>
-                                                <a href="" class="btn btn--custom keyNav" tabindex="0">Customize theme</a>
+                                                <a href="" class="btn btn--custom keyNav" tabindex="0" onclick="event.preventDefault()">Customize theme</a>
 
                                             </div>
 
 
                                             <div>
-                                                <img class="illustration" src="https://crushingit.tech/hackathon-assets/customise-store.png" alt="" style="height:12rem;">
+                                                <!--<img class="illustration" src="https://crushingit.tech/hackathon-assets/customise-store.png" alt="" style="height:12rem;">-->
+                                                <svg aria-hidden="true" class="illustration" viewBox="0 0 157 120" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <mask id="mask0_241_501" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="157" height="120">
+                                                    <rect x="0.30127" width="156.145" height="120" fill="url(#paint0_linear_241_501)"/>
+                                                    </mask>
+                                                    <g mask="url(#mask0_241_501)">
+                                                    <rect x="0.30127" width="156.145" height="120" fill="url(#pattern0)"/>
+                                                    </g>
+                                                    <defs>
+                                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                                    <use xlink:href="#image0_241_501" transform="scale(0.00462963 0.0060241)"/>
+                                                    </pattern>
+                                                    <linearGradient id="paint0_linear_241_501" x1="78.3736" y1="0" x2="78.3736" y2="106.627" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="white"/>
+                                                    <stop offset="0.93125" stop-color="white"/>
+                                                    <stop offset="1" stop-color="white" stop-opacity="0"/>
+                                                    </linearGradient>
+                                                    <image id="image0_241_501" width="216" height="166" xlink:href="data:image/png;base64,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"/>
+                                                    </defs>
+                                                </svg>
+
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="container2" role="menuitem" tabindex="0">
-                                        <div class="option opt" tabindex="0">
+                                    <div class="container2" role="menuitem" tabindex="0" aria-hidden="true" aria-label="Add your first product...Hit tab to expand this item...or keep navigating menu items with arrow keys">
+                                        <div class="option opt" tabindex="0" aria-hidden="true" aria-label="hit enter">
 
                                             <div style="display: flex; align-items: center;">
-                                                <div class="dotted-circle" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
+                                                <button class="dotted-circle" role="button" tabindex="0" aria-label="mark add your first product as done" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
 
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked">
+                                                    <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked">
                                                         <circle cx="12" cy="12" r="10" stroke="#8A8A8A" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3.7"/>
                                                     </svg>
 
 
 
 
-                                                    <div tabindex="0" class="check-mark">
-                                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <div class="check-mark" aria-hidden="true">
+                                                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <circle cx="11.9996" cy="12" r="10" fill="#1C181D" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
                                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z" fill="white"/>
                                                         </svg>
                                                     </div>
 
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="spinner">
+                                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="spinner">
                                                         <path d="M22.0004 12C22.0004 13.9778 21.4139 15.9112 20.3151 17.5557C19.2162 19.2002 17.6545 20.4819 15.8272 21.2388C13.9999 21.9957 11.9893 22.1937 10.0495 21.8079C8.10965 21.422 6.32782 20.4696 4.9293 19.0711C3.53077 17.6725 2.57837 15.8907 2.19251 13.9509C1.80666 12.0111 2.00469 10.0004 2.76157 8.17317C3.51845 6.3459 4.80017 4.78412 6.44466 3.6853C8.08916 2.58649 10.0226 2 12.0004 2" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
                                                     </svg>
 
-                                                </div>
+                                                </button>
 
-                                                <p class="content-heading-normal">Add your first product.</p>
+                                                <span class="check-status" aria-live="assertive" tabindex="0" aria-hidden="true"></span>
+
+
                                             </div>
+                                            <p class="content-heading-normal">Add your first product.</p>
+
                                         </div>
 
-                                        <div class="option active" tabindex="0">
-                                            <div class="dotted-circle" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
+                                        <div class="option active" tabindex="0" aria-hidden="true" role="contentinfo" aria-label="Hit tab to expand or keep navigating menuitems with arrow keys">
+                                            <button class="dotted-circle" role="button" tabindex="0" aria-label="mark add your first product as done or double hit tab for details" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
 
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked">
-                                                        <circle cx="12" cy="12" r="10" stroke="#8A8A8A" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3.7"/>
+                                                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked">
+                                                    <circle cx="12" cy="12" r="10" stroke="#8A8A8A" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3.7"/>
+                                                </svg>
+
+
+
+
+                                                <div aria-hidden="true" class="check-mark">
+                                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <circle cx="11.9996" cy="12" r="10" fill="#1C181D" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z" fill="white"/>
                                                     </svg>
-
-
-
-
-                                                    <div tabindex="0" class="check-mark">
-                                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <circle cx="11.9996" cy="12" r="10" fill="#1C181D" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
-                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z" fill="white"/>
-                                                        </svg>
-                                                    </div>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="spinner">
-                                                        <path d="M22.0004 12C22.0004 13.9778 21.4139 15.9112 20.3151 17.5557C19.2162 19.2002 17.6545 20.4819 15.8272 21.2388C13.9999 21.9957 11.9893 22.1937 10.0495 21.8079C8.10965 21.422 6.32782 20.4696 4.9293 19.0711C3.53077 17.6725 2.57837 15.8907 2.19251 13.9509C1.80666 12.0111 2.00469 10.0004 2.76157 8.17317C3.51845 6.3459 4.80017 4.78412 6.44466 3.6853C8.08916 2.58649 10.0226 2 12.0004 2" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
-                                                    </svg>
-
                                                 </div>
+
+                                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="spinner">
+                                                    <path d="M22.0004 12C22.0004 13.9778 21.4139 15.9112 20.3151 17.5557C19.2162 19.2002 17.6545 20.4819 15.8272 21.2388C13.9999 21.9957 11.9893 22.1937 10.0495 21.8079C8.10965 21.422 6.32782 20.4696 4.9293 19.0711C3.53077 17.6725 2.57837 15.8907 2.19251 13.9509C1.80666 12.0111 2.00469 10.0004 2.76157 8.17317C3.51845 6.3459 4.80017 4.78412 6.44466 3.6853C8.08916 2.58649 10.0226 2 12.0004 2" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+
+                                            </button>
+
+                                            <span class="check-status" aria-live="assertive" tabindex="0" aria-hidden="true"></span>
+
 
                                             <div class="content-box">
                                                 <div style="display: flex; align-items: center;">
@@ -287,11 +319,11 @@
                                                 </div>
 
 
-                                                <p class="content-text">Write a description, add photos, and set pricing for the products you plan to sell.
+                                                <p class="keyNav content-text" tabindex="0">Write a description, add photos, and set pricing for the products you plan to sell.
                                                 <a href="" class="keyNav content-link" tabindex="0"><span style="font-family: Inter;">Learn more</span></a></p>
                                                 <div style="display: flex; align-items: center;">
-                                                    <a href="" class="btn btn--custom keyNav" tabindex="0">Add product</a>
-                                                    <a href="" class="btn btn--custom1 keyNav" tabindex="0">Import product</a>
+                                                    <a href="" class="btn btn--custom keyNav" tabindex="0" onclick="event.preventDefault()">Add product</a>
+                                                    <a href="" class="btn btn--custom1 keyNav" tabindex="0" onclick="event.preventDefault()">Import product</a>
 
 
                                                 </div>
@@ -300,66 +332,75 @@
 
 
                                             <div>
-                                                <img src="https://crushingit.tech/hackathon-assets/product.png" alt="" style="height:12rem;" class="illustration">
+                                                <img class="illustration" src="https://crushingit.tech/hackathon-assets/product.png" alt="illustration" style="height:12rem;" aria-hidden="true">
+
                                             </div>
                                         </div>
 
                                     </div>
 
 
-                                    <div class="container3" role="menuitem" tabindex="0">
-                                        <div class="option opt" tabindex="0">
+                                    <div class="container3" role="menuitem" tabindex="0" role="menuitem" tabindex="0" aria-hidden="true" aria-label="Add your a custom domain...Hit tab to expand this item...or keep navigating menu items with arrow keys">
+                                        <div class="option opt" tabindex="0" aria-hidden="true" aria-label="Hit enter">
 
                                             <div style="display: flex; align-items: center;">
-                                                <div class="dotted-circle" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
+                                                <button class="dotted-circle" role="button" tabindex="0" aria-label="mark add a custom domain as done" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
 
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked">
+                                                    <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked">
                                                         <circle cx="12" cy="12" r="10" stroke="#8A8A8A" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3.7"/>
                                                     </svg>
 
 
 
 
-                                                    <div tabindex="0" class="check-mark">
-                                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <div class="check-mark" aria-hidden="true">
+                                                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <circle cx="11.9996" cy="12" r="10" fill="#1C181D" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
                                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z" fill="white"/>
                                                         </svg>
                                                     </div>
 
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="spinner">
+                                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="spinner">
                                                         <path d="M22.0004 12C22.0004 13.9778 21.4139 15.9112 20.3151 17.5557C19.2162 19.2002 17.6545 20.4819 15.8272 21.2388C13.9999 21.9957 11.9893 22.1937 10.0495 21.8079C8.10965 21.422 6.32782 20.4696 4.9293 19.0711C3.53077 17.6725 2.57837 15.8907 2.19251 13.9509C1.80666 12.0111 2.00469 10.0004 2.76157 8.17317C3.51845 6.3459 4.80017 4.78412 6.44466 3.6853C8.08916 2.58649 10.0226 2 12.0004 2" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
                                                     </svg>
 
-                                                </div>
+                                                </button>
 
-                                                <p class="content-heading-normal">Add a custom domain</p>
+                                                <span class="check-status" aria-live="assertive" tabindex="0" aria-hidden="true"></span>
+
+
+
                                             </div>
+
+                                            <p class="content-heading-normal">Add a custom domain</p>
                                         </div>
 
-                                        <div class="option active" tabindex="0" >
+                                        <div class="option active" tabindex="0" aria-hidden="true" role="contentinfo" aria-label="Hit tab to expand or keep navigating menuitems with arrow keys">
 
-                                            <div class="dotted-circle" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
+                                            <button class="dotted-circle" role="button" tabindex="0" aria-label="mark setup a payment provider as done or double hit tab for details" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
 
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked">
-                                                        <circle cx="12" cy="12" r="10" stroke="#8A8A8A" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3.7"/>
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked" aria-hidden="true">
+                                                    <circle cx="12" cy="12" r="10" stroke="#8A8A8A" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3.7"/>
+                                                </svg>
+
+
+
+
+                                                <div class="check-mark" aria-hidden="true">
+                                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                        <circle cx="11.9996" cy="12" r="10" fill="#1C181D" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z" fill="white"/>
                                                     </svg>
-
-
-
-
-                                                    <div tabindex="0" class="check-mark">
-                                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <circle cx="11.9996" cy="12" r="10" fill="#1C181D" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
-                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z" fill="white"/>
-                                                        </svg>
-                                                    </div>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="spinner">
-                                                        <path d="M22.0004 12C22.0004 13.9778 21.4139 15.9112 20.3151 17.5557C19.2162 19.2002 17.6545 20.4819 15.8272 21.2388C13.9999 21.9957 11.9893 22.1937 10.0495 21.8079C8.10965 21.422 6.32782 20.4696 4.9293 19.0711C3.53077 17.6725 2.57837 15.8907 2.19251 13.9509C1.80666 12.0111 2.00469 10.0004 2.76157 8.17317C3.51845 6.3459 4.80017 4.78412 6.44466 3.6853C8.08916 2.58649 10.0226 2 12.0004 2" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
-                                                    </svg>
-
                                                 </div>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="spinner" aria-hidden="true">
+                                                    <path d="M22.0004 12C22.0004 13.9778 21.4139 15.9112 20.3151 17.5557C19.2162 19.2002 17.6545 20.4819 15.8272 21.2388C13.9999 21.9957 11.9893 22.1937 10.0495 21.8079C8.10965 21.422 6.32782 20.4696 4.9293 19.0711C3.53077 17.6725 2.57837 15.8907 2.19251 13.9509C1.80666 12.0111 2.00469 10.0004 2.76157 8.17317C3.51845 6.3459 4.80017 4.78412 6.44466 3.6853C8.08916 2.58649 10.0226 2 12.0004 2" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+
+                                            </button>
+
+                                            <span class="check-status" aria-live="assertive" tabindex="0" aria-hidden="true"></span>
+
 
 
                                             <div class="content-box">
@@ -369,73 +410,81 @@
                                                 </div>
 
 
-                                                <p  class="content-text">Your current domain is 222219.myshopify.com but you can add a custom domain to help customers find your online store.
+                                                <p  class="content-text keyNav" tabindex="0">Your current domain is 222219.myshopify.com but you can add a custom domain to help customers find your online store.
                                                 <a href="" class="keyNav content-link" tabindex="0"><span style="font-family: Inter;">Learn more</span></a></p>
-                                                <a href="" class="btn btn--custom keyNav" tabindex="0">Add domain</a>
+                                                <a href="" class="btn btn--custom keyNav" tabindex="0" onclick="event.preventDefault()">Add domain</a>
 
                                             </div>
 
                                             <div>
-                                                 <img src="https://crushingit.tech/hackathon-assets/website.png" alt="" style="height:12rem;" class="illustration">
+                                                <img aria-hidden="true" class="illustration" src="https://crushingit.tech/hackathon-assets/website.png" alt="custom domain illustration">
+
                                             </div>
                                         </div>
 
                                     </div>
 
 
-                                    <div class="container4" role="menuitem" tabindex="0">
-                                        <div class="option opt" tabindex="0">
+                                    <div class="container4" role="menuitem" tabindex="0" aria-hidden="true" aria-label="Name your store...Hit tab to expand this item...or keep navigating menuitems with arrow keys">
+                                        <div class="option opt" tabindex="0" aria-hidden="true" aria-label="Hit enter">
 
                                             <div style="display: flex; align-items: center;">
-                                                <div class="dotted-circle" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
+                                                <button class="dotted-circle" role="button" aria-label="mark setup a payment provider as done" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
 
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked" aria-hidden="true">
                                                         <circle cx="12" cy="12" r="10" stroke="#8A8A8A" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3.7"/>
                                                     </svg>
 
 
 
 
-                                                    <div tabindex="0" class="check-mark">
-                                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <div class="check-mark">
+                                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                                             <circle cx="11.9996" cy="12" r="10" fill="#1C181D" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
                                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z" fill="white"/>
                                                         </svg>
                                                     </div>
 
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="spinner">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="spinner" aria-hidden="true">
                                                         <path d="M22.0004 12C22.0004 13.9778 21.4139 15.9112 20.3151 17.5557C19.2162 19.2002 17.6545 20.4819 15.8272 21.2388C13.9999 21.9957 11.9893 22.1937 10.0495 21.8079C8.10965 21.422 6.32782 20.4696 4.9293 19.0711C3.53077 17.6725 2.57837 15.8907 2.19251 13.9509C1.80666 12.0111 2.00469 10.0004 2.76157 8.17317C3.51845 6.3459 4.80017 4.78412 6.44466 3.6853C8.08916 2.58649 10.0226 2 12.0004 2" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
                                                     </svg>
 
-                                                </div>
+                                                </button>
 
-                                                 <p class="content-heading-normal">Name your store</p>
+                                                <span class="check-status" aria-live="assertive" tabindex="0" aria-hidden="true"></span>
+
+
+
+                                                <p class="content-heading-normal">Name your store</p>
                                             </div>
                                         </div>
 
-                                        <div class="option active" tabindex="0">
+                                        <div class="option active" tabindex="0" aria-hidden="true" role="contentinfo" aria-label="Hit tab to expand or keep navigating menuitems with arrow keys">
 
-                                            <div class="dotted-circle" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
+                                            <button class="dotted-circle" role="button" tabindex="0" aria-label="mark setup a payment provider as done or double hit tab for details" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
 
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked">
-                                                        <circle cx="12" cy="12" r="10" stroke="#8A8A8A" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3.7"/>
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked" aria-hidden="true">
+                                                    <circle cx="12" cy="12" r="10" stroke="#8A8A8A" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3.7"/>
+                                                </svg>
+
+
+
+
+                                                <div class="check-mark" aria-hidden="true">
+                                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                        <circle cx="11.9996" cy="12" r="10" fill="#1C181D" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z" fill="white"/>
                                                     </svg>
+                                                </div>
 
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="spinner" aria-hidden="true">
+                                                    <path d="M22.0004 12C22.0004 13.9778 21.4139 15.9112 20.3151 17.5557C19.2162 19.2002 17.6545 20.4819 15.8272 21.2388C13.9999 21.9957 11.9893 22.1937 10.0495 21.8079C8.10965 21.422 6.32782 20.4696 4.9293 19.0711C3.53077 17.6725 2.57837 15.8907 2.19251 13.9509C1.80666 12.0111 2.00469 10.0004 2.76157 8.17317C3.51845 6.3459 4.80017 4.78412 6.44466 3.6853C8.08916 2.58649 10.0226 2 12.0004 2" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
 
+                                            </button>
 
+                                            <span class="check-status" aria-live="assertive" tabindex="0" aria-hidden="true"></span>
 
-                                                    <div tabindex="0" class="check-mark">
-                                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <circle cx="11.9996" cy="12" r="10" fill="#1C181D" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
-                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z" fill="white"/>
-                                                        </svg>
-                                                    </div>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="spinner">
-                                                        <path d="M22.0004 12C22.0004 13.9778 21.4139 15.9112 20.3151 17.5557C19.2162 19.2002 17.6545 20.4819 15.8272 21.2388C13.9999 21.9957 11.9893 22.1937 10.0495 21.8079C8.10965 21.422 6.32782 20.4696 4.9293 19.0711C3.53077 17.6725 2.57837 15.8907 2.19251 13.9509C1.80666 12.0111 2.00469 10.0004 2.76157 8.17317C3.51845 6.3459 4.80017 4.78412 6.44466 3.6853C8.08916 2.58649 10.0226 2 12.0004 2" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
-                                                    </svg>
-
-                                            </div>
 
                                             <div class="content-box">
                                                 <div style="display: flex; align-items: center;">
@@ -444,72 +493,81 @@
                                                 </div>
 
 
-                                                <p class="content-text">Your temporary store name is currently Davii collections. The store name appears in your admin and your online store.
+                                                <p class="keyNav content-text" tabindex="0">Your temporary store name is currently Davii collections. The store name appears in your admin and your online store.
                                                 <a href="" class="keyNav content-link" tabindex="0"><span style="font-family: Inter;">Learn more</span></a></p>
-                                                <a href="" class="btn btn--custom keyNav" tabindex="0">Name store</a>
+                                                <a href="" class="btn btn--custom keyNav" tabindex="0" onclick="event.preventDefault()">Name store</a>
 
                                             </div>
 
 
                                             <div>
-                                                 <img src="https://crushingit.tech/hackathon-assets/name-store.png" alt="" style="height:12rem;" class="illustration">
+                                                <img aria-hidden="true" class="illustration" src="https://crushingit.tech/hackathon-assets/name-store.png" alt="name store illustration">
+
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="container5" role="menuitem" tabindex="0">
-                                        <div class="option opt" tabindex="0">
+                                    <div class="container5" role="menuitem" tabindex="0" aria-hidden="true" aria-label="Setup payment provider Hit tab to expand this item...or keep navigating menuitems with arrow keys">
+                                        <div class="option opt" tabindex="0" aria-hidden="true" aria-label="Hit enter">
 
                                             <div style="display: flex; align-items: center;">
-                                                <div class="dotted-circle" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
 
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked">
+                                                <button class="dotted-circle" role="button" aria-label="mark setup a payment provider as done" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
+
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked" aria-hidden="true">
                                                         <circle cx="12" cy="12" r="10" stroke="#8A8A8A" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3.7"/>
                                                     </svg>
 
 
 
 
-                                                    <div tabindex="0" class="check-mark">
-                                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <div class="check-mark">
+                                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                                             <circle cx="11.9996" cy="12" r="10" fill="#1C181D" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
                                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z" fill="white"/>
                                                         </svg>
                                                     </div>
 
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="spinner">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="spinner" aria-hidden="true">
                                                         <path d="M22.0004 12C22.0004 13.9778 21.4139 15.9112 20.3151 17.5557C19.2162 19.2002 17.6545 20.4819 15.8272 21.2388C13.9999 21.9957 11.9893 22.1937 10.0495 21.8079C8.10965 21.422 6.32782 20.4696 4.9293 19.0711C3.53077 17.6725 2.57837 15.8907 2.19251 13.9509C1.80666 12.0111 2.00469 10.0004 2.76157 8.17317C3.51845 6.3459 4.80017 4.78412 6.44466 3.6853C8.08916 2.58649 10.0226 2 12.0004 2" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
                                                     </svg>
 
-                                                </div>
+                                                </button>
 
-                                                <p class="content-heading-normal">Setup a payment provider</p>
+                                                <span class="check-status" aria-live="assertive" tabindex="0" aria-hidden="true"></span>
+
+
+
                                             </div>
+                                            <p class="content-heading-normal">Setup a payment provider</p>
                                         </div>
 
-                                        <div class="option active" tabindex="0">
+                                        <div class="option active" tabindex="0" aria-hidden="true" role="contentinfo" aria-label="Hit tab to expand or keep navigating menuitems with arrow keys">
 
-                                            <div class="dotted-circle" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
 
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked">
-                                                        <circle cx="12" cy="12" r="10" stroke="#8A8A8A" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3.7"/>
+                                            <button class="dotted-circle" role="button" tabindex="0" aria-label="mark setup a payment provider as done or double hit tab for details" aria-checked="false" onclick="toggleCheck(this)" onkeydown="handleKeyPress(event)">
+
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="unchecked" aria-hidden="true">
+                                                    <circle cx="12" cy="12" r="10" stroke="#8A8A8A" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3.7"/>
+                                                </svg>
+
+
+
+
+                                                <div class="check-mark" aria-hidden="true">
+                                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                        <circle cx="11.9996" cy="12" r="10" fill="#1C181D" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z" fill="white"/>
                                                     </svg>
-
-
-
-
-                                                    <div tabindex="0" class="check-mark">
-                                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <circle cx="11.9996" cy="12" r="10" fill="#1C181D" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
-                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8163 8.64149C17.0604 8.88557 17.0604 9.2813 16.8163 9.52538L11.3997 14.942C11.1556 15.1861 10.7599 15.1861 10.5158 14.942L7.80745 12.2337C7.56337 11.9896 7.56337 11.5939 7.80745 11.3498C8.05153 11.1057 8.44725 11.1057 8.69133 11.3498L10.9577 13.6162L15.9324 8.64149C16.1765 8.39742 16.5723 8.39742 16.8163 8.64149Z" fill="white"/>
-                                                        </svg>
-                                                    </div>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="spinner">
-                                                        <path d="M22.0004 12C22.0004 13.9778 21.4139 15.9112 20.3151 17.5557C19.2162 19.2002 17.6545 20.4819 15.8272 21.2388C13.9999 21.9957 11.9893 22.1937 10.0495 21.8079C8.10965 21.422 6.32782 20.4696 4.9293 19.0711C3.53077 17.6725 2.57837 15.8907 2.19251 13.9509C1.80666 12.0111 2.00469 10.0004 2.76157 8.17317C3.51845 6.3459 4.80017 4.78412 6.44466 3.6853C8.08916 2.58649 10.0226 2 12.0004 2" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
-                                                    </svg>
-
                                                 </div>
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="spinner" aria-hidden="true">
+                                                    <path d="M22.0004 12C22.0004 13.9778 21.4139 15.9112 20.3151 17.5557C19.2162 19.2002 17.6545 20.4819 15.8272 21.2388C13.9999 21.9957 11.9893 22.1937 10.0495 21.8079C8.10965 21.422 6.32782 20.4696 4.9293 19.0711C3.53077 17.6725 2.57837 15.8907 2.19251 13.9509C1.80666 12.0111 2.00469 10.0004 2.76157 8.17317C3.51845 6.3459 4.80017 4.78412 6.44466 3.6853C8.08916 2.58649 10.0226 2 12.0004 2" stroke="#1C181D" stroke-width="2.08333" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+
+                                            </button>
+
+                                            <span class="check-status" aria-live="assertive" tabindex="0" aria-hidden="true"></span>
 
                                             <div class="content-box">
                                                 <div style="display: flex; align-items: center;">
@@ -518,15 +576,16 @@
                                                 </div>
 
 
-                                                <p class="content-text">Choose a payment provider to start accepting payments. You'll need to create an account with the payment provider and set it up with your Shopify store.
+                                                <p class="keyNav content-text" tabindex="0">Choose a payment provider to start accepting payments. You'll need to create an account with the payment provider and set it up with your Shopify store.
                                                 <a href="" class="keyNav content-link" tabindex="0"><span style="font-family: Inter;">Learn more</span></a></p>
-                                                <a href="" class="btn btn--custom keyNav" tabindex="0">Set up payment</a>
+                                                <a href="" class="btn btn--custom keyNav" tabindex="0" onclick="event.preventDefault()">Set up payment</a>
 
                                             </div>
 
 
                                             <div>
-                                                 <img src="https://crushingit.tech/hackathon-assets/payment.png" alt="" style="height:12rem;" class="illustration">
+                                                <img class="illustration"src="https://crushingit.tech/hackathon-assets/payment.png" alt="payment illustration" aria-hidden="true">
+
                                             </div>
                                         </div>
                                     </div>
@@ -558,7 +617,7 @@
                         </div>
 
                         <a href="" class="name-bar plain-bar keyNav" tabindex="0" role="menuitem">
-                            <svg class="smallIcon" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="smallIcon" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M13.757 3H7.24302C6.85944 3 6.4971 3.17611 6.26012 3.47772L3.87394 6.51468C3.63169 6.823 3.5 7.20375 3.5 7.59586V8.25C3.5 9.31867 4.10958 10.245 5 10.7001V15.25C5 16.2165 5.7835 17 6.75 17H14.25C15.2165 17 16 16.2165 16 15.25V10.7001C16.8904 10.245 17.5 9.31867 17.5 8.25V7.76879C17.5 7.26465 17.3307 6.77511 17.0192 6.3787L14.7399 3.47772C14.5029 3.17611 14.1406 3 13.757 3ZM13.5 15.5H14.25C14.3881 15.5 14.5 15.3881 14.5 15.25V11C13.712 11 13.0014 10.6686 12.5 10.1375C11.9986 10.6686 11.288 11 10.5 11C9.71199 11 9.00138 10.6686 8.5 10.1375C7.99862 10.6686 7.28801 11 6.5 11V15.25C6.5 15.3881 6.61193 15.5 6.75 15.5H10.5V13C10.5 12.4477 10.9477 12 11.5 12H12.5C13.0523 12 13.5 12.4477 13.5 13V15.5ZM6.5 9.5H6.25C5.55964 9.5 5 8.94036 5 8.25V7.59586C5 7.53985 5.01881 7.48545 5.05342 7.44141L7.36453 4.5H13.6355L15.8397 7.30543C15.9436 7.43757 16 7.60075 16 7.76879V8.25C16 8.94036 15.4404 9.5 14.75 9.5H14.5C13.8096 9.5 13.25 8.94036 13.25 8.25V7.75C13.25 7.33579 12.9142 7 12.5 7C12.0858 7 11.75 7.33579 11.75 7.75V8.25C11.75 8.94036 11.1904 9.5 10.5 9.5C9.80964 9.5 9.25 8.94036 9.25 8.25V7.75C9.25 7.33579 8.91421 7 8.5 7C8.08579 7 7.75 7.33579 7.75 7.75V8.25C7.75 8.94036 7.19036 9.5 6.5 9.5Z" fill="#000"/>
                             </svg>
 
@@ -648,6 +707,9 @@
 
 
             </section>
+
+
+
 
 
         </main>
